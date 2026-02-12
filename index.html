@@ -87,7 +87,26 @@ I don’t care about the day or the calendar — I just care about us. So, here�
     }
 
     function sayYes() {
-      document.getElementById('response').innerHTML = "Isn't he SO SWEET and ROMANTIC 😚";
+  document.getElementById('response').innerHTML = "Yay! Can't wait to see you 😘";
+
+  // Create a daisy image
+  const daisy = document.createElement("img");
+  daisy.src = "https://i.imgur.com/9WqZk4X.png"; // sample daisy image link
+  daisy.style.width = "100px";
+  daisy.style.position = "absolute";
+  daisy.style.top = "-100px"; // start above the screen
+  daisy.style.left = "50%";
+  daisy.style.transform = "translateX(-50%)";
+  daisy.style.transition = "top 1s ease-out";
+
+  document.body.appendChild(daisy);
+
+  // Animate the daisy dropping down
+  setTimeout(() => {
+    daisy.style.top = "50px"; // falls into view
+  }, 100);
+}
+
     }
 
     function sayNo() {
