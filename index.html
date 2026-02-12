@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Valentine's Letter 💌</title>
+  <title>Valentine 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Pacifico', cursive;
       text-align: center;
       background: linear-gradient(to bottom right, #ffe6f0, #fff0f5);
       color: #333;
       margin: 0;
       padding: 0;
+      position: relative;
+      overflow-x: hidden;
     }
 
     .container {
@@ -58,21 +61,20 @@
   </style>
 </head>
 <body>
+  <!-- Letter Page -->
   <div class="container" id="letterPage">
-    <h1>From the ❤️</h1>
+    <h1>Hey you ❤️</h1>
     <p>
-      Dear Rachel, ❤️
-
-I just wanted to say… being with you makes everything feel brighter.
-Every laugh we share, every movie we watch, every moment I get to be close to you — it sticks with me.
-I still remember that first kiss, how it felt like the world slowed down for just us.
-You’ve got a way of making me feel alive and calm at the same time, and I trust that you’re the one for me — the one I want to have these moments with.
-
-I don’t care about the day or the calendar — I just care about us. So, here’s me asking… will you be my Valentine? 💌
+      I just wanted to say… being with you makes everything feel brighter.  
+      Every laugh we share, every movie we watch, every moment I get to be close to you — it sticks with me.  
+      I still remember that first kiss, how it felt like the world slowed down for just us.  
+      You’ve got a way of making me feel alive and calm at the same time, and I trust that you’re the one for me — the one I want to have these moments with.  
+      I don’t care about the day or the calendar — I just care about us. So, here’s me asking…
     </p>
     <button onclick="nextSlide()">Next</button>
   </div>
 
+  <!-- Valentine Question Page -->
   <div class="container hidden" id="valentinePage">
     <h1>Will you be my Valentine? 💌</h1>
     <button class="yes" onclick="sayYes()">Yes ❤️</button>
@@ -81,37 +83,38 @@ I don’t care about the day or the calendar — I just care about us. So, here�
   </div>
 
   <script>
+    // Move from letter to Valentine question
     function nextSlide() {
       document.getElementById('letterPage').classList.add('hidden');
       document.getElementById('valentinePage').classList.remove('hidden');
     }
 
+    // If she says YES
     function sayYes() {
-  document.getElementById('response').innerHTML = "Yay! Can't wait to see you 😘";
+      document.getElementById('response').innerHTML = "Yay! Can't wait to see you 😘";
 
-  // Create a daisy image
-  const daisy = document.createElement("img");
-  daisy.src = "https://i.imgur.com/9WqZk4X.png"; // sample daisy image link
-  daisy.style.width = "100px";
-  daisy.style.position = "absolute";
-  daisy.style.top = "-100px"; // start above the screen
-  daisy.style.left = "50%";
-  daisy.style.transform = "translateX(-50%)";
-  daisy.style.transition = "top 1s ease-out";
+      // Create a daisy image
+      const daisy = document.createElement("img");
+      daisy.src = "https://i.imgur.com/9WqZk4X.png"; // sample daisy image
+      daisy.style.width = "100px";
+      daisy.style.position = "absolute";
+      daisy.style.top = "-100px";
+      daisy.style.left = "50%";
+      daisy.style.transform = "translateX(-50%)";
+      daisy.style.transition = "top 1s ease-out";
+      document.body.appendChild(daisy);
 
-  document.body.appendChild(daisy);
-
-  // Animate the daisy dropping down
-  setTimeout(() => {
-    daisy.style.top = "50px"; // falls into view
-  }, 100);
-}
-
+      // Animate daisy falling
+      setTimeout(() => {
+        daisy.style.top = "50px";
+      }, 100);
     }
 
+    // If she says NO
     function sayNo() {
-      document.getElementById('response').innerHTML = "So rude... 😪";
+      document.getElementById('response').innerHTML = "All good, still think you're amazing 🙂";
     }
   </script>
 </body>
 </html>
+
